@@ -1,4 +1,5 @@
 'use client';
+import { useEffect } from 'react';
 import clsx from 'clsx';
 import {
   Hourglass,
@@ -34,6 +35,19 @@ interface StatCardProps {
 const Stats: React.FC = () => {
   const { playClick } = useClick();
   const toggleStats = useStatsStore(state => state.toggleStats);
+
+  // Handle ESC key to close stats
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        e.stopPropagation(); // Prevent the event from bubbling to ReturnFromGame
+        playClick();
+        toggleStats();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown, true); // Use capture phase
+    return () => window.removeEventListener('keydown', handleKeyDown, true);
+  }, [playClick, toggleStats]);
 
   // Get data from store
   const numCorrectAnswers: number = useStatsStore(
