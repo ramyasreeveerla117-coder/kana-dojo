@@ -59,3 +59,16 @@ export { BlogList, filterPostsByCategory } from './components/BlogList';
 export { CategoryFilter } from './components/CategoryFilter';
 export { TableOfContents } from './components/TableOfContents';
 export { RelatedPosts } from './components/RelatedPosts';
+
+// MDX Components
+export {
+  FuriganaText,
+  KanaChart,
+  InfoBox,
+  QuizQuestion,
+  mdxComponents,
+  BASE_CHARACTER_COUNT,
+  EXTENDED_CHARACTER_COUNT,
+  VALID_INFOBOX_TYPES,
+  type InfoBoxType
+} from './components/mdx';
