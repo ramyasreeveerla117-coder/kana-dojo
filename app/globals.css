@@ -234,7 +234,8 @@ input[type='checkbox']:focus-visible {
 .editorial-content table {
   display: block;
   width: 100%;
-  min-width: 640px;
+  min-width: 100%;
+  max-width: 100%;
   border: 1px solid var(--border-color);
   border-radius: 0.75rem;
   border-collapse: separate;
@@ -242,6 +243,13 @@ input[type='checkbox']:focus-visible {
   background: var(--card-color);
   overflow-x: auto;
   box-shadow: 0 20px 45px -40px rgba(0, 0, 0, 0.45);
+}
+
+.editorial-content table tbody,
+.editorial-content table thead {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
 }
 
 .editorial-content table thead th {
@@ -263,11 +271,11 @@ input[type='checkbox']:focus-visible {
 }
 
 .editorial-content table tbody tr:nth-child(even) td {
-  background: color-mix(in srgb, var(--card-color) 88%, var(--main-color) 12%);
+  background: color-mix(in srgb, var(--card-color) 96%, var(--border-color) 4%);
 }
 
 .editorial-content table tbody tr:hover td {
-  background: color-mix(in srgb, var(--card-color) 82%, var(--main-color) 18%);
+  background: color-mix(in srgb, var(--card-color) 92%, var(--border-color) 8%);
 }
 
 .hero-text-glow {

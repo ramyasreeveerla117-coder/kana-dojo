@@ -215,7 +215,10 @@ function normalizeListItems(children: React.ReactNode) {
   return React.Children.toArray(children)
     .map(child => {
       if (React.isValidElement(child) && child.type === 'li') {
-        return child.props.children;
+        const listItem = child as React.ReactElement<{
+          children?: React.ReactNode;
+        }>;
+        return listItem.props.children;
       }
       return child;
     })
